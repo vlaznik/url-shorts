@@ -13,7 +13,7 @@ port        ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
-web: bundle exec puma -C config/puma.rb
+web: bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
